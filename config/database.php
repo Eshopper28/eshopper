@@ -2,11 +2,17 @@
 
 function getDatabaseConnection(): PDO
 {
-    $host = getenv('DB_HOST') ?: 'localhost';
-    $name = getenv('DB_NAME') ?: 'eshopper';
-    $user = getenv('DB_USER') ?: '';
-    $password = getenv('DB_PASSWORD') ?: '';
+    $host = getenv('DB_HOST');
+    $name = getenv('DB_NAME');
+    $user = getenv('DB_USER');
+    $password = getenv('DB_PASSWORD');
     $port = getenv('DB_PORT') ?: '3306';
+
+    if (!$host || !$name || !$user || !$password) {
+        throw new RuntimeException(
+            'Database configuration is missing.'
+        );
+    }
 
     $dsn = "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4";
 
