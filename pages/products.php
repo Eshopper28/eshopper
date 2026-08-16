@@ -172,12 +172,13 @@ $products = [
                 ₹<?= number_format($product['price']) ?>
             </div>
 
-            <button
+            <a
                 class="product-btn"
-                onclick="alert('Cart system coming next!')"
+                href="cart.php?add=<?= $product['id'] ?>"
+                style="text-align:center;text-decoration:none;"
             >
                 Add to Cart
-            </button>
+            </a>
 
         </div>
 
