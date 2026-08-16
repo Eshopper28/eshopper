@@ -2,23 +2,29 @@
 
 function getDatabaseConnection(): PDO
 {
-    $host = getenv('DB_HOST');
-    $name = getenv('DB_NAME');
-    $user = getenv('DB_USER');
-    $password = getenv('DB_PASSWORD');
-    $port = getenv('DB_PORT') ?: '3306';
+    $configFile = __DIR__ . '/database.local.php';
 
-    if (!$host || !$name || !$user || !$password) {
-        throw new RuntimeException(
-            'Database configuration is missing.'
-        );
+    if (!file_exists($configFile)) {
+        throw new RuntimeException('Database configuration is missing.');
     }
 
-    $dsn = "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4";
+    $config = require $configFile;
 
-    return new PDO($dsn, $user, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false
-    ]);
+    $dsn = sprintf(
+        'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
+        $config['host'],
+        $config['port'],
+        $config['name']
+    );
+
+    return new PDO(
+        $dsn,
+        $config['user'],
+        $config['password'],
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false
+        ]
+    );
 }
