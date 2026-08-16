@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7f9;
+    color: #171717;
+}
+
+header {
+    background: #111;
+    color: #fff;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background: #fff;
+    padding: 80px 6%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 7vw, 64px);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.section {
+    padding: 50px 6%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.category {
+    background: #fff;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.category span {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.sell-banner {
+    margin: 20px 6% 50px;
+    padding: 45px 25px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.sell-banner p {
+    margin: 12px 0 25px;
+    color: #ccc;
+}
+
+.sell-banner .btn {
+    background: #fff;
+    color: #111;
+}
+
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+}
