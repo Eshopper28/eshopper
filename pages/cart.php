@@ -294,6 +294,13 @@ $total = 0;
             </a>
 
             <a
+                href="checkout.php"
+                    class="btn"
+                    >
+                        🧾 Checkout
+                        </a>
+
+            <a
                 href="cart.php?clear=1"
                 class="btn"
             >
