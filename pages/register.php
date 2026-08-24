@@ -1,4 +1,3 @@
-cat > pages/register.php <<'EOF'
 <?php
 
 session_start();
@@ -373,4 +372,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
-EOF
